@@ -52,7 +52,7 @@ else:
         history = ChatHistory()
         try:
             chatbot = utils.setup_chatbot(
-                uploaded_file, st.session_state["model"], st.session_state["temperature"]
+                uploaded_file, 'gpt-4-1106-preview', st.session_state["temperature"]
             )
             st.session_state["chatbot"] = chatbot
 
