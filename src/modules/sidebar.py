@@ -39,14 +39,4 @@ class Sidebar:
             step=self.TEMPERATURE_STEP,
         )
         st.session_state["temperature"] = temperature
-        
-    def show_options(self):
-        with st.sidebar.expander("🛠️ Robby's Tools", expanded=False):
 
-            self.reset_chat_button()
-            self.model_selector()
-            self.temperature_slider()
-            st.session_state.setdefault("model", self.MODEL_OPTIONS[0])
-            st.session_state.setdefault("temperature", self.TEMPERATURE_DEFAULT_VALUE)
-
-    

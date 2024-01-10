@@ -28,7 +28,7 @@ if uploaded_file :
     embeddings = OpenAIEmbeddings()
     vectors = FAISS.from_documents(data, embeddings)
 
-    chain = ConversationalRetrievalChain.from_llm(llm = ChatOpenAI(temperature=0.0,model_name='gpt-3.5-turbo', openai_api_key=user_api_key),
+    chain = ConversationalRetrievalChain.from_llm(llm = ChatOpenAI(temperature=0.0,model_name='gpt-turbo', openai_api_key=user_api_key),
                                                                       retriever=vectors.as_retriever())
 
     def conversational_chat(query):
@@ -42,7 +42,7 @@ if uploaded_file :
         st.session_state['history'] = []
 
     if 'generated' not in st.session_state:
-        st.session_state['generated'] = ["Hello ! Ask me anything about " + uploaded_file.name + " 🤗"]
+        st.session_state['generated'] = ["Hello ! Ask me anythinggggg about " + uploaded_file.name + " 🤗"]
 
     if 'past' not in st.session_state:
         st.session_state['past'] = ["Hey ! 👋"]

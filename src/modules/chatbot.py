@@ -16,7 +16,9 @@ class Chatbot:
         self.vectors = vectors
 
     qa_template = """
-        You are a helpful AI assistant named Robby. The user gives you a file its content is represented by the following pieces of context, use them to answer the question at the end.
+    
+        Kamu adalah AI assistant beranama UMI-AI GPT. User 
+        You are a helpful AI assistant named UMI-AI GPT. The user gives you a file its content is represented by the following pieces of context, use them to answer the question at the end.
         If you don't know the answer, just say you don't know. Do NOT try to make up an answer.
         If the question is not related to the context, politely respond that you are tuned to only answer questions that are related to the context.
         Use as much detail as possible when responding.
@@ -33,7 +35,7 @@ class Chatbot:
         """
         Start a conversational chat with a model via Langchain
         """
-        llm = ChatOpenAI(model_name=self.model_name, temperature=self.temperature)
+        llm = ChatOpenAI(model_name="gpt-4-1106-preview", temperature=self.temperature)
 
         retriever = self.vectors.as_retriever()
 
@@ -55,5 +57,4 @@ def count_tokens_chain(chain, query):
         st.write(f'###### Tokens used in this conversation : {cb.total_tokens} tokens')
     return result 
 
-    
     
