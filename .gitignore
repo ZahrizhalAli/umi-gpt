@@ -156,3 +156,8 @@ cython_debug/
 *.pkl
 *.csv
 
+# streamlit
+.streamlit
+.streamlit/secrets.toml
+
+

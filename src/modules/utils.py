@@ -44,7 +44,6 @@ class Utilities:
         :param file_types: List of accepted file types, e.g., ["csv", "pdf", "txt"]
         """
         uploaded_file = st.file_uploader("upload", type=file_types, label_visibility="collapsed")
-        print("uploaded_file", uploaded_file)
         # uploaded_file = st.sidebar.file_uploader("upload", type=file_types, label_visibility="collapsed")
         if uploaded_file is not None:
 
