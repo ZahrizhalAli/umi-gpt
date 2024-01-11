@@ -95,8 +95,9 @@ class Utilities:
         embeds = Embedder()
 
         with st.spinner("Processing..."):
-            uploaded_file.seek(0)
+            # print(uploaded_file.seek(0))
             file = uploaded_file.read()
+            # print(file)
             # Get the document embeddings for the uploaded file
             vectors = embeds.getDocEmbeds(file, uploaded_file.name)
 

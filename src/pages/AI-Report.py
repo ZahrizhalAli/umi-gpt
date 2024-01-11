@@ -6,7 +6,6 @@ import sys
 from modules.history import ChatHistory
 from modules.layout import Layout
 from modules.utils import Utilities
-from modules.sidebar import Sidebar
 
 #To be able to update the changes made to modules in localhost (press r)
 def reload_module(module_name):
@@ -24,7 +23,7 @@ ChatHistory = history_module.ChatHistory
 Layout = layout_module.Layout
 Utilities = utils_module.Utilities
 
-st.set_page_config(layout="wide", page_icon="💬", page_title="UMI | AI Report")
+st.set_page_config(layout="wide", page_icon="💬", page_title="UMI | AI Report",initial_sidebar_state="collapsed" )
 
 # Instantiate the main components
 layout, utils = Layout(), Utilities()
@@ -37,6 +36,16 @@ st.markdown(
     """,
     unsafe_allow_html=True,
 )
+st.markdown(
+            """
+        <style>
+            [data-testid="collapsedControl"] {
+                display: none
+            }
+        </style>
+        """,
+            unsafe_allow_html=True,
+        )
 
 user_api_key = utils.load_api_key()
 
