@@ -24,6 +24,9 @@ class Utilities:
             if st.session_state.api_key is not None:
                 user_api_key = st.session_state.api_key
                 st.sidebar.success("API key loaded from previous input", icon="🚀")
+            elif st.secrets['OPENAI_API_KEY'] is not None:
+                user_api_key = st.secrets['OPENAI_API_KEY']
+                st.sidebar.success("API key loaded from previous input", icon="🚀")
             else:
                 user_api_key = st.sidebar.text_input(
                     label="#### Your OpenAI API key 👇", placeholder="sk-...", type="password"
@@ -41,7 +44,7 @@ class Utilities:
         :param file_types: List of accepted file types, e.g., ["csv", "pdf", "txt"]
         """
         uploaded_file = st.file_uploader("upload", type=file_types, label_visibility="collapsed")
-
+        print("uploaded_file", uploaded_file)
         # uploaded_file = st.sidebar.file_uploader("upload", type=file_types, label_visibility="collapsed")
         if uploaded_file is not None:
 
